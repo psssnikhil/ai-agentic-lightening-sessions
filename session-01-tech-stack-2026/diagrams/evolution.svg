@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <defs><linearGradient id="ev" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#14B8A6"/><stop offset="1" stop-color="#4F46E5"/></linearGradient>
+  <marker id="evm" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#4F46E5"/></marker></defs>
+  <text x="500" y="34" text-anchor="middle" font-size="26" font-weight="700" fill="#1E293B">How we got here: 2023 → 2026</text>
+  <text x="500" y="60" text-anchor="middle" font-size="14.5" fill="#64748B">Each wave added a layer of the stack. 2026 is the year agents crossed into production.</text>
+
+  <line x1="70" y1="120" x2="930" y2="120" stroke="url(#ev)" stroke-width="6" marker-end="url(#evm)"/>
+
+  <g text-anchor="middle">
+    <circle cx="130" cy="120" r="10" fill="#14B8A6"/><text x="130" y="98" font-size="14" font-weight="700" fill="#0F766E">2023</text>
+    <rect x="60" y="150" width="150" height="130" rx="12" fill="#F0FDFA" stroke="#14B8A6"/><text x="135" y="176" font-size="13.5" font-weight="700" fill="#0F766E">Chatbots</text><text x="135" y="202" font-size="11" fill="#475569">a prompt in,</text><text x="135" y="218" font-size="11" fill="#475569">text out</text><text x="135" y="248" font-size="10.5" fill="#94A3B8">+ Model layer</text>
+
+    <circle cx="330" cy="120" r="10" fill="#22B8A0"/><text x="330" y="98" font-size="14" font-weight="700" fill="#0F766E">2024</text>
+    <rect x="255" y="150" width="150" height="130" rx="12" fill="#ECFDF5" stroke="#2DD4BF"/><text x="330" y="176" font-size="13.5" font-weight="700" fill="#0F766E">RAG + tool-use</text><text x="330" y="202" font-size="11" fill="#475569">retrieval &amp;</text><text x="330" y="218" font-size="11" fill="#475569">function calling</text><text x="330" y="248" font-size="10.5" fill="#94A3B8">+ Memory, Tools</text>
+
+    <circle cx="530" cy="120" r="10" fill="#6366F1"/><text x="530" y="98" font-size="14" font-weight="700" fill="#3730A3">2025</text>
+    <rect x="455" y="150" width="150" height="130" rx="12" fill="#EEF2FF" stroke="#6366F1"/><text x="530" y="176" font-size="13.5" font-weight="700" fill="#3730A3">Agents</text><text x="530" y="202" font-size="11" fill="#475569">the loop:</text><text x="530" y="218" font-size="11" fill="#475569">plan → act → observe</text><text x="530" y="248" font-size="10.5" fill="#94A3B8">+ Orchestration</text>
+
+    <circle cx="730" cy="120" r="11" fill="#4F46E5"/><text x="730" y="98" font-size="14" font-weight="700" fill="#312E81">2026</text>
+    <rect x="650" y="150" width="160" height="130" rx="12" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"/><text x="730" y="176" font-size="13.5" font-weight="700" fill="#312E81">Production agents</text><text x="730" y="200" font-size="11" fill="#475569">multi-agent, MCP,</text><text x="730" y="216" font-size="11" fill="#475569">harness engineering</text><text x="730" y="248" font-size="10.5" fill="#94A3B8">+ Guardrails, Evals,</text><text x="730" y="263" font-size="10.5" fill="#94A3B8">Observability</text>
+
+    <circle cx="900" cy="120" r="8" fill="#A5B4FC"/><text x="900" y="98" font-size="12" font-weight="700" fill="#64748B">next</text>
+    <text x="900" y="176" font-size="11" fill="#94A3B8">longer-running,</text><text x="900" y="192" font-size="11" fill="#94A3B8">more autonomous</text>
+  </g>
+
+  <rect x="60" y="320" width="880" height="120" rx="14" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="82" y="350" font-size="16" font-weight="700" fill="#92400E">Why 2026 is different</text>
+  <text x="82" y="378" font-size="14" fill="#78350F">The hard part stopped being "can the model do it?" and became <tspan font-weight="700">"can I make it reliable?"</tspan></text>
+  <text x="82" y="404" font-size="14" fill="#78350F">The work moved from prompting → to engineering the whole environment around the model:</text>
+  <text x="82" y="426" font-size="14" fill="#78350F">tools, memory, guardrails, evaluation, observability. That environment is the <tspan font-weight="700">"harness."</tspan></text>
+</svg>

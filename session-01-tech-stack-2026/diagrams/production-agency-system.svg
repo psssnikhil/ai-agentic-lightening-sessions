@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <defs>
+    <marker id="pa" markerWidth="11" markerHeight="11" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#4F46E5"/></marker>
+    <marker id="pag" markerWidth="11" markerHeight="11" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#22C55E"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="700" rx="16" fill="#FAFBFC"/>
+  <!-- observability rail -->
+  <rect x="20" y="12" width="1160" height="44" rx="10" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/>
+  <text x="36" y="32" font-size="12" font-weight="800" fill="#9D174D">7 OBSERVABILITY + EVALS</text>
+  <text x="36" y="48" font-size="10" fill="#831843">wraps every hop</text>
+  <text x="240" y="38" font-size="11.5" fill="#475569">Langfuse � Braintrust � LangSmith � traces every call � LLM-as-judge before publish</text>
+  <!-- pipeline -->
+  <rect x="20" y="68" width="150" height="64" rx="12" fill="#0B1020"/>
+  <text x="95" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Client brief</text>
+  <text x="95" y="112" text-anchor="middle" font-size="10" fill="#94A3B8">"Launch campaign post"</text>
+  <line x1="170" y1="100" x2="198" y2="100" stroke="#4F46E5" stroke-width="2.5" marker-end="url(#pa)"/>
+  <rect x="198" y="60" width="170" height="80" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="2"/>
+  <text x="283" y="88" text-anchor="middle" font-size="13" font-weight="800" fill="#3730A3">4 Orchestrator</text>
+  <text x="283" y="106" text-anchor="middle" font-size="10" fill="#475569">LangGraph supervisor</text>
+  <text x="283" y="122" text-anchor="middle" font-size="9" fill="#6366F1" font-style="italic">routes to specialists</text>
+  <g font-size="10" text-anchor="middle">
+    <rect x="388" y="60" width="148" height="80" rx="12" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
+    <text x="462" y="84" font-size="12.5" font-weight="700" fill="#0F766E">Research</text>
+    <text x="462" y="100" fill="#475569">web search + RAG</text>
+    <text x="462" y="116" fill="#475569">1 Model � 3 MCP tools</text>
+    <rect x="552" y="60" width="148" height="80" rx="12" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
+    <text x="626" y="84" font-size="12.5" font-weight="700" fill="#0F766E">Writer</text>
+    <text x="626" y="100" fill="#475569">draft from research</text>
+    <text x="626" y="116" fill="#475569">1 Sonnet � 2 memory</text>
+    <rect x="716" y="60" width="148" height="80" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="2"/>
+    <text x="790" y="84" font-size="12.5" font-weight="700" fill="#3730A3">Reviewer</text>
+    <text x="790" y="100" fill="#475569">rubric critique loop</text>
+    <text x="790" y="116" fill="#475569">evaluator-optimizer</text>
+    <rect x="880" y="60" width="140" height="80" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+    <text x="950" y="84" font-size="12.5" font-weight="700" fill="#92400E">6 Human PM</text>
+    <text x="950" y="100" fill="#78350F">approve publish</text>
+    <text x="950" y="116" fill="#78350F">HITL gate</text>
+  </g>
+  <line x1="368" y1="100" x2="386" y2="100" stroke="#4F46E5" stroke-width="2" marker-end="url(#pa)"/>
+  <line x1="536" y1="100" x2="550" y2="100" stroke="#4F46E5" stroke-width="2" marker-end="url(#pa)"/>
+  <line x1="700" y1="100" x2="714" y2="100" stroke="#4F46E5" stroke-width="2" marker-end="url(#pa)"/>
+  <line x1="864" y1="100" x2="878" y2="100" stroke="#4F46E5" stroke-width="2" marker-end="url(#pa)"/>
+  <rect x="520" y="158" width="160" height="44" rx="12" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+  <text x="600" y="178" text-anchor="middle" font-size="13" font-weight="800" fill="#15803D">Shipped to CMS</text>
+  <text x="600" y="194" text-anchor="middle" font-size="9.5" fill="#166534">judge + human pass</text>
+  <line x1="950" y1="140" x2="640" y2="156" stroke="#22C55E" stroke-width="2" marker-end="url(#pag)"/>
+  <!-- stack tiles -->
+  <text x="36" y="232" font-size="12" font-weight="800" fill="#334155">2026 stack underneath � what powers each box</text>
+  <rect x="20" y="244" width="185" height="170" rx="12" fill="#0B2530" stroke="#06B6D4" stroke-width="1.5"/>
+  <text x="36" y="268" font-size="12" font-weight="800" fill="#67E8F9">1 MODELS</text>
+  <g font-size="10.5" fill="#E2E8F0"><text x="36" y="292">Claude Sonnet � workers</text><text x="36" y="310">Claude Opus � review</text><text x="36" y="328">OpenRouter / LiteLLM</text><text x="36" y="346">route by cost x quality</text></g>
+  <text x="36" y="398" font-size="9.5" fill="#5EEAD4" font-style="italic">reasons in every agent</text>
+  <rect x="215" y="244" width="185" height="170" rx="12" fill="#2A2109" stroke="#FBBF24" stroke-width="1.5"/>
+  <text x="231" y="268" font-size="12" font-weight="800" fill="#FCD34D">2 MEMORY + RAG</text>
+  <g font-size="10.5" fill="#E2E8F0"><text x="231" y="292">Mem0 � Zep � Redis</text><text x="231" y="310">pgvector � Qdrant</text><text x="231" y="328">brand guidelines KB</text><text x="231" y="346">campaign history</text></g>
+  <text x="231" y="398" font-size="9.5" fill="#FCD34D" font-style="italic">feeds each agent loop</text>
+  <rect x="410" y="244" width="185" height="170" rx="12" fill="#2A1220" stroke="#FB7185" stroke-width="1.5"/>
+  <text x="426" y="268" font-size="12" font-weight="800" fill="#FDA4AF">3 TOOLS (MCP)</text>
+  <g font-size="10.5" fill="#E2E8F0"><text x="426" y="292">Exa � Firecrawl</text><text x="426" y="310">CMS API � Slack</text><text x="426" y="328">E2B � Composio</text><text x="426" y="346">MCP server per tool</text></g>
+  <text x="426" y="398" font-size="9.5" fill="#FDA4AF" font-style="italic">results back to memory</text>
+  <rect x="605" y="244" width="185" height="170" rx="12" fill="#171633" stroke="#818CF8" stroke-width="1.5"/>
+  <text x="621" y="268" font-size="12" font-weight="800" fill="#C7D2FE">4 ORCHESTRATION</text>
+  <g font-size="10.5" fill="#E2E8F0"><text x="621" y="292">LangGraph � CrewAI</text><text x="621" y="310">supervisor pipeline</text><text x="621" y="328">A2A agent-to-agent</text><text x="621" y="346">Claude Agent SDK</text></g>
+  <text x="621" y="398" font-size="9.5" fill="#A5B4FC" font-style="italic">runs the agent loop</text>
+  <rect x="800" y="244" width="185" height="78" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="816" y="268" font-size="12" font-weight="800" fill="#92400E">5 GUARDRAILS</text>
+  <g font-size="10" fill="#78350F"><text x="816" y="290">step caps � budgets</text><text x="816" y="306">Lakera � Guardrails AI</text></g>
+  <rect x="800" y="332" width="185" height="82" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="816" y="356" font-size="12" font-weight="800" fill="#92400E">6 HUMAN-IN-LOOP</text>
+  <g font-size="10" fill="#78350F"><text x="816" y="378">PM approval on publish</text><text x="816" y="394">Slack review � audit log</text></g>
+  <rect x="995" y="244" width="185" height="170" rx="12" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/>
+  <text x="1011" y="268" font-size="12" font-weight="800" fill="#F9A8D4">HARNESS + UI</text>
+  <g font-size="10.5" fill="#E2E8F0"><text x="1011" y="292">Claude Code � Cursor</text><text x="1011" y="310">MCP � protocols</text><text x="1011" y="328">LangGraph runtime</text><text x="1011" y="346">IDE agent workflows</text></g>
+  <text x="1011" y="398" font-size="9.5" fill="#F9A8D4" font-style="italic">where engineers build</text>
+  <!-- governance rail -->
+  <rect x="20" y="430" width="1160" height="44" rx="10" fill="#0C2417" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="36" y="450" font-size="12" font-weight="800" fill="#86EFAC">5 GOVERNANCE + SECURITY</text>
+  <text x="36" y="466" font-size="10" fill="#64748B">wraps every layer</text>
+  <text x="260" y="456" font-size="11" fill="#CBD5E1">IAM � secrets � PII redaction � FinOps � model registry � compliance audit</text>
+  <!-- legend -->
+  <rect x="20" y="486" width="1160" height="88" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/>
+  <text x="36" y="510" font-size="13" font-weight="800" fill="#3730A3">Where the 7 components live � your production destination</text>
+  <g font-size="10.5" fill="#334155">
+    <text x="36" y="532"><tspan font-weight="700" fill="#0F766E">1 Model</tspan> in every agent � <tspan font-weight="700" fill="#0F766E">2 Memory</tspan> brand KB + history � <tspan font-weight="700" fill="#0F766E">3 Tools</tspan> MCP search/CMS/sandbox</text>
+    <text x="36" y="552"><tspan font-weight="700" fill="#3730A3">4 Orchestration</tspan> supervisor pipeline � <tspan font-weight="700" fill="#92400E">5 Guardrails</tspan> budgets/policies � <tspan font-weight="700" fill="#92400E">6 HITL</tspan> PM approves ship</text>
+    <text x="36" y="572"><tspan font-weight="700" fill="#9D174D">7 Observability</tspan> traces + judge on every hop � <tspan font-weight="700" fill="#3730A3">Sessions 2-6 build this system piece by piece</tspan></text>
+  </g>
+  <!-- dashed connectors -->
+  <g stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="4 3">
+    <line x1="462" y1="140" x2="112" y2="242"/><line x1="626" y1="140" x2="307" y2="242"/>
+    <line x1="790" y1="140" x2="502" y2="242"/><line x1="950" y1="140" x2="892" y2="242"/>
+  </g>
+</svg>

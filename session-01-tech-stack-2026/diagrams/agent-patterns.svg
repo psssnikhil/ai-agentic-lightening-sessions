@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <text x="500" y="34" text-anchor="middle" font-size="25" font-weight="700" fill="#1E293B">The core agent patterns</text>
+  <text x="500" y="58" text-anchor="middle" font-size="14" fill="#64748B">Reusable shapes that solve most problems. Each gets a hands-on session in the series →</text>
+
+  <g font-size="12">
+    <rect x="24" y="80" width="308" height="118" rx="12" fill="#F0FDFA" stroke="#14B8A6" stroke-width="1.5"/><text x="42" y="106" font-size="14.5" font-weight="700" fill="#0F766E">1 · ReAct loop</text><text x="42" y="130" fill="#475569">reason → act (tool) → observe → repeat</text><text x="42" y="150" fill="#475569">the base loop under every agent</text><text x="42" y="182" font-size="11.5" font-weight="700" fill="#0F766E">hands-on → Session 2</text>
+    <rect x="346" y="80" width="308" height="118" rx="12" fill="#F0FDFA" stroke="#14B8A6" stroke-width="1.5"/><text x="364" y="106" font-size="14.5" font-weight="700" fill="#0F766E">2 · Tool use + grounded RAG</text><text x="364" y="130" fill="#475569">call tools; retrieve facts before</text><text x="364" y="150" fill="#475569">answering — cited, not guessed</text><text x="364" y="182" font-size="11.5" font-weight="700" fill="#0F766E">hands-on → Session 3</text>
+    <rect x="668" y="80" width="308" height="118" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/><text x="686" y="106" font-size="14.5" font-weight="700" fill="#3730A3">3 · Reflection / evaluator-optimizer</text><text x="686" y="130" fill="#475569">generate → critique → revise, until</text><text x="686" y="150" fill="#475569">a rubric is met — self-improvement</text><text x="686" y="182" font-size="11.5" font-weight="700" fill="#3730A3">hands-on → Session 4</text>
+
+    <rect x="24" y="212" width="308" height="118" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/><text x="42" y="238" font-size="14.5" font-weight="700" fill="#3730A3">4 · Planner–executor</text><text x="42" y="262" fill="#475569">make a plan first, then execute</text><text x="42" y="282" fill="#475569">steps — good for complex tasks</text><text x="42" y="314" font-size="11.5" font-weight="700" fill="#3730A3">seen throughout</text>
+    <rect x="346" y="212" width="308" height="118" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/><text x="364" y="238" font-size="14.5" font-weight="700" fill="#92400E">5 · Prompt chaining / pipeline</text><text x="364" y="262" fill="#78350F">fixed stages, each output feeds</text><text x="364" y="282" fill="#78350F">the next (research → write → review)</text><text x="364" y="314" font-size="11.5" font-weight="700" fill="#92400E">hands-on → Session 6</text>
+    <rect x="668" y="212" width="308" height="118" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/><text x="686" y="238" font-size="14.5" font-weight="700" fill="#92400E">6 · Supervisor / multi-agent</text><text x="686" y="262" fill="#78350F">a router delegates to specialist</text><text x="686" y="282" fill="#78350F">workers — only when truly needed</text><text x="686" y="314" font-size="11.5" font-weight="700" fill="#92400E">hands-on → Session 6</text>
+  </g>
+
+  <!-- the harness -->
+  <rect x="24" y="352" width="952" height="184" rx="14" fill="#0B1020"/>
+  <text x="48" y="384" font-size="16" font-weight="800" fill="#A5B4FC">…and they all run inside a HARNESS</text>
+  <text x="48" y="412" font-size="13.5" fill="#E2E8F0">The harness is the environment around the model — what turns a clever pattern into a reliable system.</text>
+  <g font-size="12.5" fill="#C7D2FE">
+    <text x="48" y="444">🔧 tools &amp; permissions</text><text x="270" y="444">💾 memory &amp; state</text><text x="470" y="444">🛡️ guardrails &amp; approval</text><text x="720" y="444">🔁 retries &amp; checkpoints</text>
+    <text x="48" y="470">📊 traces &amp; evals</text><text x="270" y="470">📦 sandboxes</text><text x="470" y="470">📄 machine-readable context</text><text x="720" y="470">⏱️ budgets &amp; limits</text>
+  </g>
+  <text x="48" y="506" font-size="13" fill="#94A3B8" font-style="italic">Car analogy: the model is the engine; context is the fuel; the harness is steering, brakes &amp; lane-keeping.</text>
+  <text x="48" y="526" font-size="13" font-weight="700" fill="#4ADE80">"Harness engineering" — designing that environment — is the real 2026 craft. The whole series is harness-building.</text>
+</svg>

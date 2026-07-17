@@ -1,0 +1,54 @@
+<svg viewBox="0 0 1020 580" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <text x="510" y="30" text-anchor="middle" font-size="24" font-weight="700" fill="#1E293B">The protocol layer — how agents connect in 2026</text>
+  <text x="510" y="53" text-anchor="middle" font-size="13" fill="#64748B">Not competitors — different jobs. Two clear winners; the rest fill niches.</text>
+
+  <!-- mental model bar -->
+  <g font-size="12.5" text-anchor="middle">
+    <rect x="40" y="70" width="270" height="52" rx="10" fill="#F0FDFA" stroke="#14B8A6"/><text x="175" y="92" font-weight="700" fill="#0F766E">agent ⟷ tools</text><text x="175" y="111" fill="#475569">MCP</text>
+    <rect x="375" y="70" width="270" height="52" rx="10" fill="#EEF2FF" stroke="#6366F1"/><text x="510" y="92" font-weight="700" fill="#3730A3">agent ⟷ agent</text><text x="510" y="111" fill="#475569">A2A (ACP merged in)</text>
+    <rect x="710" y="70" width="270" height="52" rx="10" fill="#FCE7F3" stroke="#EC4899"/><text x="845" y="92" font-weight="700" fill="#9D174D">agent ⟷ open internet</text><text x="845" y="111" fill="#475569">ANP · AGORA</text>
+  </g>
+
+  <!-- 4 detail cards -->
+  <g font-size="11.5">
+    <rect x="40" y="142" width="230" height="330" rx="12" fill="#F0FDFA" stroke="#14B8A6" stroke-width="1.5"/>
+    <text x="58" y="168" font-size="15" font-weight="700" fill="#0F766E">MCP</text><text x="58" y="186" font-size="10.5" fill="#64748B">Model Context Protocol</text>
+    <line x1="58" y1="196" x2="252" y2="196" stroke="#99F6E4"/>
+    <text x="58" y="216" fill="#334155" font-weight="600">By: Anthropic (Nov 2024)</text>
+    <text x="58" y="238" fill="#475569">Connects an agent to</text><text x="58" y="254" fill="#475569">tools, data &amp; APIs via</text><text x="58" y="270" fill="#475569">one uniform interface.</text>
+    <text x="58" y="300" fill="#334155" font-weight="600">Status: won the</text><text x="58" y="316" fill="#334155" font-weight="600">tool layer</text>
+    <text x="58" y="340" fill="#475569">~97M downloads; used</text><text x="58" y="356" fill="#475569">by Anthropic, OpenAI,</text><text x="58" y="372" fill="#475569">Google, Microsoft.</text>
+    <text x="58" y="404" fill="#0F766E" font-style="italic">We use MCP in</text><text x="58" y="420" fill="#0F766E" font-style="italic">Session 6.</text>
+
+    <rect x="290" y="142" width="230" height="330" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/>
+    <text x="308" y="168" font-size="15" font-weight="700" fill="#3730A3">A2A</text><text x="308" y="186" font-size="10.5" fill="#64748B">Agent-to-Agent</text>
+    <line x1="308" y1="196" x2="502" y2="196" stroke="#C7D2FE"/>
+    <text x="308" y="216" fill="#334155" font-weight="600">By: Google (2025)</text>
+    <text x="308" y="238" fill="#475569">Lets agents delegate</text><text x="308" y="254" fill="#475569">tasks to each other</text><text x="308" y="270" fill="#475569">without exposing internals.</text>
+    <text x="308" y="300" fill="#334155" font-weight="600">Status: leading</text><text x="308" y="316" fill="#334155" font-weight="600">agent-to-agent standard</text>
+    <text x="308" y="340" fill="#475569">→ Linux Foundation</text><text x="308" y="356" fill="#475569">(Jun 2025), 50+ partners:</text><text x="308" y="372" fill="#475569">AWS, MS, Salesforce, SAP.</text>
+    <text x="308" y="404" fill="#3730A3" font-style="italic">The multi-agent</text><text x="308" y="420" fill="#3730A3" font-style="italic">backbone.</text>
+
+    <rect x="540" y="142" width="230" height="330" rx="12" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <text x="558" y="168" font-size="15" font-weight="700" fill="#334155">ACP</text><text x="558" y="186" font-size="10.5" fill="#64748B">Agent Communication Protocol</text>
+    <line x1="558" y1="196" x2="752" y2="196" stroke="#E2E8F0"/>
+    <text x="558" y="216" fill="#334155" font-weight="600">By: IBM / BeeAI</text>
+    <text x="558" y="238" fill="#475569">Early agent-to-agent</text><text x="558" y="254" fill="#475569">messaging standard.</text>
+    <text x="558" y="286" fill="#B45309" font-weight="600">Status: folded into</text><text x="558" y="302" fill="#B45309" font-weight="600">A2A during 2025</text>
+    <text x="558" y="326" fill="#475569">A cautionary tale: in a</text><text x="558" y="342" fill="#475569">young space, standards</text><text x="558" y="358" fill="#475569">merge fast.</text>
+    <text x="558" y="404" fill="#64748B" font-style="italic">Don't over-invest in</text><text x="558" y="420" fill="#64748B" font-style="italic">any one too early.</text>
+
+    <rect x="790" y="142" width="190" height="330" rx="12" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/>
+    <text x="808" y="168" font-size="15" font-weight="700" fill="#9D174D">ANP</text><text x="808" y="186" font-size="10.5" fill="#64748B">Agent Network Protocol</text>
+    <line x1="808" y1="196" x2="962" y2="196" stroke="#FBCFE8"/>
+    <text x="808" y="216" fill="#334155" font-weight="600">By: open community</text>
+    <text x="808" y="238" fill="#475569">Agents discover &amp;</text><text x="808" y="254" fill="#475569">transact directly</text><text x="808" y="270" fill="#475569">over the open web.</text>
+    <text x="808" y="300" fill="#334155" font-weight="600">Status: emerging</text>
+    <text x="808" y="324" fill="#475569">Decentralized "agent</text><text x="808" y="340" fill="#475569">marketplaces"; earlier</text><text x="808" y="356" fill="#475569">stage than MCP/A2A.</text>
+    <text x="808" y="404" fill="#9D174D" font-style="italic">+ AGORA, AGP,</text><text x="808" y="420" fill="#9D174D" font-style="italic">TAP, OAP…</text>
+  </g>
+
+  <rect x="40" y="490" width="940" height="70" rx="12" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="60" y="516" font-size="14.5" font-weight="700" fill="#92400E">The 2026 takeaway</text>
+  <text x="60" y="538" font-size="13" fill="#78350F">Standards are converging: <tspan font-weight="700">MCP for tools, A2A for agents</tspan> are the safe bets. Learn the two roles; treat the rest as "watch this space."</text>
+</svg>

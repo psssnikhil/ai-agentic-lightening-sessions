@@ -1,0 +1,72 @@
+<svg viewBox="0 0 1200 730" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <rect x="0" y="0" width="1200" height="730" rx="18" fill="#0B1020"/>
+  <text x="600" y="38" text-anchor="middle" font-size="26" font-weight="800" fill="#FFFFFF">The AI Agent Stack in 2026</text>
+  <text x="600" y="60" text-anchor="middle" font-size="12.5" fill="#94A3B8" font-style="italic">illustrative, not exhaustive · learn the layers — the tools churn</text>
+
+  <!-- TOP cross-cutting strip: observability -->
+  <rect x="30" y="76" width="1140" height="52" rx="12" fill="#0E1A3A" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="58" cy="102" r="12" fill="#3B82F6"/><text x="58" y="107" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">◎</text>
+  <text x="80" y="98" font-size="12.5" font-weight="800" fill="#93C5FD">OBSERVABILITY &amp; EVALS</text><text x="80" y="114" font-size="10" fill="#64748B">wraps every layer →</text>
+  <text x="300" y="107" font-size="12.5" fill="#CBD5E1">Langfuse · Phoenix · Braintrust · LangSmith · Opik · Weave · Helicone · Maxim · Laminar</text>
+
+  <!-- LEFT hero: models -->
+  <rect x="30" y="140" width="356" height="508" rx="14" fill="#0B2530" stroke="#06B6D4" stroke-width="1.5"/>
+  <circle cx="58" cy="170" r="13" fill="#06B6D4"/><text x="58" y="175" text-anchor="middle" font-size="12" font-weight="800" fill="#042f2e">5</text>
+  <text x="80" y="168" font-size="15" font-weight="800" fill="#67E8F9">MODELS,</text><text x="80" y="186" font-size="15" font-weight="800" fill="#67E8F9">INFERENCE &amp; ROUTING</text>
+  <text x="52" y="230" font-size="11.5" font-weight="700" fill="#22D3EE">Frontier &amp; open models</text>
+  <g font-size="13" fill="#E2E8F0"><text x="52" y="256">Anthropic · Gemini</text><text x="52" y="280">OpenAI · Llama</text><text x="52" y="304">Mistral · DeepSeek · Qwen</text></g>
+  <text x="52" y="352" font-size="11.5" font-weight="700" fill="#22D3EE">Inference</text>
+  <g font-size="13" fill="#E2E8F0"><text x="52" y="378">Fireworks · Together</text><text x="52" y="402">Groq · Baseten</text></g>
+  <text x="52" y="450" font-size="11.5" font-weight="700" fill="#22D3EE">Routing / gateways</text>
+  <g font-size="13" fill="#E2E8F0"><text x="52" y="476">OpenRouter · LiteLLM</text><text x="52" y="500">Portkey</text></g>
+  <text x="52" y="560" font-size="11" fill="#64748B" font-style="italic">pick by capability ×</text><text x="52" y="576" font-size="11" fill="#64748B" font-style="italic">cost × latency; route</text><text x="52" y="592" font-size="11" fill="#64748B" font-style="italic">per-step (S1 · S5)</text>
+  <text x="52" y="628" font-size="11.5" font-weight="700" fill="#67E8F9">↑ the foundation everything</text><text x="52" y="644" font-size="11.5" font-weight="700" fill="#67E8F9">    else is built on</text>
+
+  <!-- RIGHT column -->
+  <!-- Interfaces & harnesses -->
+  <rect x="402" y="140" width="768" height="116" rx="14" fill="#2A1220" stroke="#F472B6" stroke-width="1.5"/>
+  <circle cx="430" cy="170" r="13" fill="#F472B6"/><text x="430" y="175" text-anchor="middle" font-size="12" font-weight="800" fill="#500724">1</text>
+  <text x="452" y="175" font-size="15" font-weight="800" fill="#F9A8D4">INTERFACES &amp; HARNESSES</text>
+  <text x="424" y="204" font-size="11" font-weight="700" fill="#FB7185">Interfaces</text><text x="510" y="204" font-size="12.5" fill="#E2E8F0">Claude · Gemini · ChatGPT · Copilot · Perplexity · Replit</text>
+  <text x="424" y="234" font-size="11" font-weight="700" fill="#FB7185">Harnesses</text><text x="510" y="234" font-size="12.5" fill="#E2E8F0">Claude Code · Cursor · Windsurf · Cline · Codex</text>
+
+  <!-- Runtimes & frameworks -->
+  <rect x="402" y="264" width="768" height="116" rx="14" fill="#171633" stroke="#818CF8" stroke-width="1.5"/>
+  <circle cx="430" cy="294" r="13" fill="#818CF8"/><text x="430" y="299" text-anchor="middle" font-size="12" font-weight="800" fill="#1e1b4b">4</text>
+  <text x="452" y="299" font-size="15" font-weight="800" fill="#C7D2FE">RUNTIMES &amp; FRAMEWORKS</text>
+  <text x="424" y="328" font-size="11" font-weight="700" fill="#A5B4FC">Frameworks</text><text x="530" y="328" font-size="12.5" fill="#E2E8F0">CrewAI · LangGraph · PydanticAI · LlamaIndex · Mastra · Agno · smolagents</text>
+  <text x="424" y="358" font-size="11" font-weight="700" fill="#A5B4FC">SDKs</text><text x="530" y="358" font-size="12.5" fill="#E2E8F0">Claude Agent SDK · OpenAI Agents SDK · Google ADK · MS Agent Framework</text>
+
+  <!-- Protocols -->
+  <rect x="402" y="388" width="768" height="56" rx="14" fill="#1E1633" stroke="#A78BFA" stroke-width="1.5"/>
+  <circle cx="430" cy="416" r="13" fill="#A78BFA"/><text x="430" y="421" text-anchor="middle" font-size="12" font-weight="800" fill="#2e1065">3</text>
+  <text x="452" y="421" font-size="14" font-weight="800" fill="#C4B5FD">PROTOCOLS</text>
+  <text x="590" y="421" font-size="13" fill="#E2E8F0" font-weight="600">MCP · A2A · AG-UI · ACP · OpenAPI</text>
+
+  <!-- three capability tiles -->
+  <rect x="402" y="452" width="246" height="196" rx="14" fill="#0C2724" stroke="#2DD4BF" stroke-width="1.5"/>
+  <circle cx="430" cy="482" r="13" fill="#2DD4BF"/><text x="430" y="487" text-anchor="middle" font-size="12" font-weight="800" fill="#042f2e">2a</text>
+  <text x="452" y="480" font-size="13" font-weight="800" fill="#5EEAD4">KNOWLEDGE</text><text x="452" y="495" font-size="13" font-weight="800" fill="#5EEAD4">&amp; RETRIEVAL</text>
+  <g font-size="12" fill="#E2E8F0"><text x="418" y="524">Qdrant · Chroma</text><text x="418" y="548">Weaviate · Milvus</text><text x="418" y="572">Pinecone · pgvector</text><text x="418" y="596">neo4j · Glean</text></g>
+  <text x="418" y="628" font-size="10.5" fill="#5EEAD4" font-style="italic">vector · graph · RAG</text>
+
+  <rect x="658" y="452" width="256" height="196" rx="14" fill="#2A1220" stroke="#FB7185" stroke-width="1.5"/>
+  <circle cx="686" cy="482" r="13" fill="#FB7185"/><text x="686" y="487" text-anchor="middle" font-size="12" font-weight="800" fill="#500724">2b</text>
+  <text x="708" y="480" font-size="13" font-weight="800" fill="#FDA4AF">TOOLS, ACTIONS</text><text x="708" y="495" font-size="13" font-weight="800" fill="#FDA4AF">&amp; SANDBOXES</text>
+  <g font-size="12" fill="#E2E8F0"><text x="674" y="524">Firecrawl · Exa</text><text x="674" y="548">Composio · Browserbase</text><text x="674" y="572">Apify · n8n · Zapier</text><text x="674" y="596">E2B · Modal · Daytona</text></g>
+  <text x="674" y="628" font-size="10.5" fill="#FDA4AF" font-style="italic">function calling · code exec</text>
+
+  <rect x="924" y="452" width="246" height="196" rx="14" fill="#2A2109" stroke="#FBBF24" stroke-width="1.5"/>
+  <circle cx="952" cy="482" r="13" fill="#FBBF24"/><text x="952" y="487" text-anchor="middle" font-size="12" font-weight="800" fill="#451a03">2c</text>
+  <text x="974" y="480" font-size="13" font-weight="800" fill="#FCD34D">MEMORY &amp; STATE</text>
+  <g font-size="12" fill="#E2E8F0"><text x="940" y="516">Zep (Graphiti)</text><text x="940" y="540">Mem0 · Letta</text><text x="940" y="564">Cognee · supermemory</text><text x="940" y="588">Redis · Postgres</text></g>
+  <text x="940" y="622" font-size="10.5" fill="#FCD34D" font-style="italic">short-term history +</text><text x="940" y="638" font-size="10.5" fill="#FCD34D" font-style="italic">long-term store</text>
+
+  <!-- BOTTOM cross-cutting strip: governance -->
+  <rect x="30" y="660" width="1140" height="46" rx="12" fill="#0C2417" stroke="#22C55E" stroke-width="1.5"/>
+  <circle cx="58" cy="683" r="12" fill="#22C55E"/><text x="58" y="688" text-anchor="middle" font-size="12" font-weight="800" fill="#052e16">⛨</text>
+  <text x="80" y="680" font-size="12.5" font-weight="800" fill="#86EFAC">GOVERNANCE, SECURITY &amp; HUMAN CONTROL</text><text x="80" y="696" font-size="10" fill="#64748B">wraps every layer →</text>
+  <text x="470" y="688" font-size="12.5" fill="#CBD5E1">Lakera · Protect AI · HiddenLayer · Robust Intelligence · Guardrails AI · NeMo · OPA · human approval · audit logs</text>
+
+  <text x="600" y="726" text-anchor="middle" font-size="10.5" fill="#475569" font-style="italic">original layout · taxonomy common across 2026 community stack maps · examples verified against 2026 sources</text>
+</svg>

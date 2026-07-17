@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Segoe UI, system-ui, sans-serif">
+  <defs><linearGradient id="hz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4F46E5"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs>
+  <text x="500" y="34" text-anchor="middle" font-size="25" font-weight="700" fill="#1E293B">Where agentic AI is heading next</text>
+  <text x="500" y="58" text-anchor="middle" font-size="14" fill="#64748B">The 2026 → beyond bets. The pattern is clear: from clever demos to reliable, connected, autonomous systems.</text>
+
+  <rect x="40" y="76" width="920" height="6" rx="3" fill="url(#hz)"/>
+  <text x="46" y="98" font-size="11" font-weight="700" fill="#4F46E5">NOW</text>
+  <text x="954" y="98" text-anchor="end" font-size="11" font-weight="700" fill="#EC4899">HORIZON</text>
+
+  <g font-size="12">
+    <rect x="24" y="112" width="308" height="130" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/><text x="42" y="138" font-size="14" font-weight="700" fill="#3730A3">⏳ Longer-running agents</text><text x="42" y="162" fill="#475569">from seconds to hours/days;</text><text x="42" y="182" fill="#475569">background &amp; async work,</text><text x="42" y="202" fill="#475569">externalized memory to survive</text><text x="42" y="228" font-size="11" fill="#94A3B8" font-style="italic">"agents that run while you sleep"</text>
+    <rect x="346" y="112" width="308" height="130" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/><text x="364" y="138" font-size="14" font-weight="700" fill="#3730A3">🤝 Multi-agent ecosystems</text><text x="364" y="162" fill="#475569">A2A + agent registries → agents</text><text x="364" y="182" fill="#475569">discovering &amp; hiring each other;</text><text x="364" y="202" fill="#475569">an "agent economy"</text><text x="364" y="228" font-size="11" fill="#94A3B8" font-style="italic">interoperability standards mature</text>
+    <rect x="668" y="112" width="308" height="130" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/><text x="686" y="138" font-size="14" font-weight="700" fill="#3730A3">🖥️ Computer-use agents</text><text x="686" y="162" fill="#475569">operating real software &amp; browsers</text><text x="686" y="182" fill="#475569">directly (click, type, navigate) —</text><text x="686" y="202" fill="#475569">not just calling APIs</text><text x="686" y="228" font-size="11" fill="#94A3B8" font-style="italic">the GUI becomes the tool</text>
+
+    <rect x="24" y="256" width="308" height="130" rx="12" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/><text x="42" y="282" font-size="14" font-weight="700" fill="#9D174D">🧠 Persistent memory</text><text x="42" y="306" fill="#831843">agents that remember across</text><text x="42" y="326" fill="#831843">sessions &amp; improve over time;</text><text x="42" y="346" fill="#831843">continual, personalized learning</text><text x="42" y="372" font-size="11" fill="#94A3B8" font-style="italic">memory is the new moat</text>
+    <rect x="346" y="256" width="308" height="130" rx="12" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/><text x="364" y="282" font-size="14" font-weight="700" fill="#9D174D">🛡️ Reliability &amp; security as the moat</text><text x="364" y="306" fill="#831843">the edge shifts from the model to</text><text x="364" y="326" fill="#831843">the harness: evals, guardrails,</text><text x="364" y="346" fill="#831843">prompt-injection defense, governance</text><text x="364" y="372" font-size="11" fill="#94A3B8" font-style="italic">"same model, better system" wins</text>
+    <rect x="668" y="256" width="308" height="130" rx="12" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/><text x="686" y="282" font-size="14" font-weight="700" fill="#9D174D">⚡ Cheaper, faster, on-device</text><text x="686" y="306" fill="#831843">smaller specialized models +</text><text x="686" y="326" fill="#831843">routing; more inference at the</text><text x="686" y="346" fill="#831843">edge → agents everywhere</text><text x="686" y="372" font-size="11" fill="#94A3B8" font-style="italic">economics unlock scale</text>
+  </g>
+
+  <rect x="24" y="404" width="952" height="132" rx="14" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="48" y="434" font-size="16" font-weight="800" fill="#92400E">The through-line</text>
+  <text x="48" y="462" font-size="14" fill="#78350F">Intelligence is becoming abundant. The scarce skill is <tspan font-weight="700">engineering the system around it</tspan> —</text>
+  <text x="48" y="486" font-size="14" fill="#78350F">tools, memory, guardrails, evaluation, orchestration. That's exactly what this series teaches, hands-on.</text>
+  <text x="48" y="516" font-size="13" fill="#B45309" font-style="italic">Directional bets, not predictions — the space moves monthly. Bet on the shape, not the specifics.</text>
+</svg>
