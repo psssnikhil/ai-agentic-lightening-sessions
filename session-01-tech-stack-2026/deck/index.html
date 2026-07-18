@@ -11,14 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root{ --indigo:#4F46E5; --indigo-d:#3730A3; --teal:#0F766E; --ink:#1E293B; --muted:#64748B; }
+    #top-progress-wrap{position:fixed; top:0; left:0; right:0; height:6px; background:#E2E8F0; z-index:50;}
+    #top-progress{height:100%; width:0; background:linear-gradient(90deg,#14B8A6,var(--indigo)); transition:width .25s ease;}
     .reveal{font-family:'Inter',system-ui,sans-serif; color:var(--ink); font-size:32px;}
+    .reveal .slides section{padding:0.35em 0.75em; box-sizing:border-box;}
     .reveal h1,.reveal h2,.reveal h3{font-family:'Inter',sans-serif; color:var(--ink); font-weight:800; text-transform:none; letter-spacing:-.02em; line-height:1.1;}
     .reveal h1{font-size:1.7em;} .reveal h2{font-size:1.25em;} .reveal h3{font-size:1.05em;}
     .reveal section{text-align:left;} .reveal .center{text-align:center;}
     .reveal em{color:var(--indigo); font-style:normal; font-weight:700;}
     .reveal strong{color:var(--indigo-d);}
     .reveal pre{width:100%; box-shadow:none; font-size:.46em;}
-    .reveal pre code{border-radius:12px; padding:16px 20px; font-family:'JetBrains Mono',monospace; max-height:520px;}
+    .reveal pre code{border-radius:12px; padding:16px 20px; font-family:'JetBrains Mono',monospace; max-height:500px;}
     .reveal code:not(pre code){background:#EEF2FF; color:var(--indigo-d); padding:1px 8px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:.85em;}
     .kicker{color:var(--indigo); font-weight:700; font-size:.5em; letter-spacing:.14em; text-transform:uppercase;}
     .sub{color:var(--muted); font-weight:400;}
@@ -30,10 +33,10 @@
     .grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
     .callout{background:#FEF3C7; border-left:6px solid #F59E0B; border-radius:8px; padding:12px 18px; font-size:.76em;}
     .footer{position:fixed; bottom:12px; left:22px; font-size:14px; color:#94A3B8; z-index:30;}
-    .reveal .progress{color:var(--indigo);}
+    .reveal .progress{display:none;}
     .big{font-size:1.35em; font-weight:800; line-height:1.15;}
     .quote{font-size:1.05em; font-weight:700; color:var(--indigo-d); line-height:1.25;}
-    svg,.deck-img{max-height:540px; display:block; margin:0 auto; width:100%;}
+    svg,.deck-img{max-height:480px; display:block; margin:0 auto; width:100%;}
     .steptbl{width:100%; border-collapse:collapse; font-size:.54em;}
     .steptbl td{padding:7px 11px; border-bottom:1px solid #E2E8F0; vertical-align:top;}
     .steptbl .n{color:#fff; background:var(--indigo); border-radius:8px; font-weight:800; text-align:center; width:32px;}
@@ -41,7 +44,6 @@
     .comp .num{width:28px; height:28px; border-radius:50%; color:#fff; font-weight:800; font-size:.55em; display:flex; align-items:center; justify-content:center; margin-bottom:6px;}
     .comp .name{font-weight:800; font-size:.48em; line-height:1.15; margin-bottom:4px;}
     .comp .line{font-size:.4em; color:#475569; line-height:1.25;}
-    .comp .link{font-size:.36em; color:var(--indigo); font-weight:600; margin-top:auto; padding-top:6px;}
     .core{background:#F0FDFA; border-color:#14B8A6;} .core .num{background:#14B8A6;}
     .ctrl{background:#EEF2FF; border-color:#6366F1;} .ctrl .num{background:#6366F1;}
     .trust{background:#FEF3C7; border-color:#F59E0B;} .trust .num{background:#F59E0B;}
@@ -54,11 +56,6 @@
     .intbl .types{color:#475569;} .intbl .internal{color:#334155;} .intbl .fit{color:var(--indigo-d); font-weight:600;}
     .n1{background:#14B8A6;} .n2{background:#14B8A6;} .n3{background:#14B8A6;}
     .n4{background:#6366F1;} .n5{background:#F59E0B;} .n6{background:#F59E0B;} .n7{background:#EC4899;}
-    .usecase{background:#0B1020; color:#fff; border-radius:16px; padding:18px 22px; margin-bottom:.2em;}
-    .usecase h3{color:#C7D2FE; font-size:.85em; margin:0 0 .35em;}
-    .usecase .row{font-size:.55em; margin:.25em 0; color:#E2E8F0; line-height:1.35;}
-    .usecase .label{color:#94A3B8; display:inline-block; width:4.2em; font-weight:600;}
-    .miss{font-size:.46em; color:#475569; margin-top:.35em;}
     .brief{background:#0B1020; color:#E2E8F0; border-radius:14px; padding:14px 18px; font-size:.52em; line-height:1.4; margin:.35em 0; border-left:5px solid var(--indigo);}
     .brief strong{color:#A5B4FC; display:block; margin-bottom:.35em; font-size:.9em;}
     .pipe{display:flex; align-items:stretch; gap:6px; margin:.35em 0 .25em; font-size:.38em;}
@@ -75,7 +72,6 @@
     .maptbl th{text-align:left; padding:6px 10px; background:#F1F5F9; color:#475569; font-weight:700;}
     .maptbl td{padding:6px 10px; border-bottom:1px solid #E2E8F0; vertical-align:top;}
     .maptbl .num{width:28px; text-align:center; font-weight:800; color:#fff; border-radius:6px;}
-    .reveal section.fit-slide{font-size:28px;}
     .sumgrid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:.25em;}
     .sumbox{background:#fff; border:1px solid #E2E8F0; border-radius:16px; padding:16px 18px; font-size:.52em;}
     .sumbox h3{font-size:1em; margin:0 0 .45em; color:var(--indigo-d);}
@@ -84,48 +80,69 @@
     .nextbox{background:#0B1020; color:#E2E8F0; border-radius:16px; padding:16px 18px; font-size:.52em; margin-top:.35em;}
     .nextbox h3{color:#A5B4FC; font-size:1em; margin:0 0 .45em;}
     .nextbox p{margin:.25em 0; line-height:1.35;}
-    .wrapbar{background:#0B1020; color:#E2E8F0; border-radius:12px; padding:10px 14px; font-size:.4em; line-height:1.45; margin-bottom:.25em;}
-    .wrapbar strong{color:#A5B4FC;}
-    .wrapgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:.35em;}
-    .wrapchip{background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:8px 10px; font-size:.36em; line-height:1.35;}
-    .wrapchip .tag{display:inline-block; background:var(--indigo); color:#fff; font-weight:700; border-radius:6px; padding:1px 6px; margin-right:4px; font-size:.95em;}
-    .typetbl{width:100%; border-collapse:collapse; font-size:.38em; margin-top:.2em;}
+    .maplinktbl{width:100%; border-collapse:collapse; font-size:.38em; margin:.15em 0 .2em;}
+    .maplinktbl th{text-align:left; padding:5px 8px; background:#EEF2FF; color:#3730A3; font-weight:700;}
+    .maplinktbl td{padding:5px 8px; border-bottom:1px solid #E2E8F0; vertical-align:top; line-height:1.3;}
+    .maplinktbl .num{font-weight:800; color:var(--indigo-d); white-space:nowrap;}
+    .typetbl{width:100%; border-collapse:collapse; font-size:.36em; margin-top:.1em;}
     .typetbl th{text-align:left; padding:5px 8px; background:#F1F5F9; color:#475569; font-weight:700;}
-    .typetbl td{padding:5px 8px; border-bottom:1px solid #E2E8F0; vertical-align:top; line-height:1.35;}
+    .typetbl td{padding:5px 8px; border-bottom:1px solid #E2E8F0; vertical-align:top; line-height:1.3;}
     .typetbl .num{width:24px; text-align:center; font-weight:800; color:#fff; border-radius:6px;}
+    .intro-wrap{max-width:900px; margin:0 auto; text-align:left;}
+    .intro-grid{display:grid; grid-template-columns:200px 1fr; gap:28px; align-items:center; margin-bottom:.45em;}
+    .intro-photo{width:180px; height:180px; border-radius:18px; object-fit:cover; border:3px solid #6366F1; box-shadow:0 8px 28px rgba(0,0,0,.3);}
+    .intro-name{font-size:1.2em; font-weight:800; color:#fff; margin:0 0 .12em;}
+    .intro-role{font-size:.58em; color:#C7D2FE; font-weight:600; margin:0 0 .3em;}
+    .intro-tags{font-size:.48em; color:#94A3B8; line-height:1.45; margin:0;}
+    .intro-divider{border:none; border-top:1px solid #334155; margin:.45em 0;}
+    .session-title{font-size:.95em; font-weight:800; color:#fff; margin:.1em 0;}
+    .session-sub{font-size:.58em; color:#C7D2FE; font-weight:600; margin:.2em 0;}
+    .session-promise{font-size:.5em; color:#94A3B8; margin:.35em 0 0;}
+    .miss{font-size:.5em; color:#475569; margin-top:.35em;}
   </style>
 </head>
 <body>
+<div id="top-progress-wrap"><div id="top-progress"></div></div>
 <div class="footer">Designing Real-World AI Agents · Session 1 · 40 min</div>
 <div class="reveal"><div class="slides">
 
-<!-- 1 · TITLE -->
+<!-- 1 · WELCOME + INTRO -->
 <section data-background-color="#0B1020">
-  <div class="center" style="color:#fff">
-    <div class="kicker" style="color:#A5B4FC">Lightning Series · Session 1 of 6 · 40 minutes</div>
-    <h1 style="color:#fff; margin:.15em 0">The AI Agent Tech Stack in 2026</h1>
-    <h3 style="color:#C7D2FE; font-weight:600">See the whole board — then watch it run live</h3>
-    <p class="sub" style="color:#94A3B8; margin-top:1em; font-size:.72em">Seven components · how they connect · where they land in a <em style="color:#A5B4FC">real production agency system</em></p>
+  <div class="intro-wrap">
+    <div class="kicker" style="color:#A5B4FC; margin-bottom:.35em">Designing Real-World AI Agents · Lightning Series</div>
+    <h2 style="color:#fff; font-size:1.15em; margin:0 0 .35em">Welcome</h2>
+    <div class="intro-grid">
+      <img class="intro-photo" src="assets/nikhil-headshot.png" alt="Nikhil Pentapalli">
+      <div>
+        <p class="intro-name">Nikhil Pentapalli</p>
+        <p class="intro-role">Senior AI Engineer · ~9 years in AI · Speaker · Builder</p>
+        <p class="intro-tags">GenAI · RAG · Agents · Adobe · Ex-Startups</p>
+      </div>
+    </div>
+    <hr class="intro-divider">
+    <div class="kicker" style="color:#A5B4FC">Session 1 of 6 · 40 minutes</div>
+    <p class="session-title" style="margin-top:.2em">The AI Agent Tech Stack in 2026</p>
   </div>
-  <aside class="notes">[0:00] High energy open. Promise: in 40 minutes they'll have the mental map AND watch all 7 components execute in one script. No deep theory today — a lap around the track.</aside>
+  <aside class="notes">[0:00–0:01] Quick intro — who you are, what you build. Land the session title. Keep it under 60 seconds.</aside>
 </section>
 
 <!-- 2 · THE SHIFT -->
 <section data-background-color="#EEF2FF">
   <div class="center">
     <div class="kicker">Why 2026 feels different</div>
-    <p class="big" style="margin:.25em 0">The question changed.</p>
+    <h2 style="margin-bottom:.35em">Production is the hard part now</h2>
+    <p class="big" style="margin:.25em 0; font-size:1.1em">The question changed.</p>
     <p class="big" style="color:#0F766E">2023–24: "<span style="color:#334155">can the model do it?</span>"</p>
     <p class="big" style="color:var(--indigo-d)">2026: "<span style="color:#334155">can I make it reliable?</span>"</p>
     <p class="sub center" style="font-size:.72em; margin-top:.8em; max-width:820px; margin-left:auto; margin-right:auto">Demos are easy. Production is the craft — tools, memory, guardrails, evals, observability.<br>That environment around the model? It's called the <strong>harness</strong>. Today we map every piece of it.</p>
   </div>
-  <aside class="notes">[0:02] Frame the era in 60 seconds. The harness is the recurring word — it'll pay off on the agency diagram at the end.</aside>
+  <aside class="notes">[0:02] Frame the era in 60 seconds. The harness pays off on slide 12 pipeline.</aside>
 </section>
 
 <!-- 3 · AGENT IN 30s -->
 <section>
-  <div class="kicker">Agent in 30 seconds</div>
-  <h2>A model in a loop — with tools and a goal</h2>
+  <div class="kicker">Definition</div>
+  <h2>What makes it an agent?</h2>
   <div class="grid2" style="font-size:.62em; margin-top:.25em">
     <div class="card" style="border-color:var(--indigo)">
       <strong>The one-line test</strong><br>
@@ -141,8 +158,8 @@
 
 <!-- 4 · 7 COMPONENTS (names only) -->
 <section>
-  <div class="kicker">The map — seven boxes</div>
-  <h2 style="font-size:1.05em; margin-bottom:.2em">The 7 components · one job each</h2>
+  <div class="kicker">The map</div>
+  <h2 style="font-size:1.05em; margin-bottom:.2em">Seven components · one job each</h2>
   <div class="grid4" style="margin-top:.15em">
     <div class="comp core fragment"><div class="num">1</div><div class="name">Model</div><div class="line">Reasons &amp; picks the next move</div></div>
     <div class="comp core fragment"><div class="num">2</div><div class="name">Memory</div><div class="line">Remembers prior turns &amp; context</div></div>
@@ -153,13 +170,13 @@
     <div class="comp trust-pink fragment"><div class="num">7</div><div class="name">Observability</div><div class="line">Traces, metrics, evals in prod</div></div>
   </div>
   <p class="sub center" style="font-size:.5em; margin-top:.4em">Teal = core · Indigo = control · Amber/Pink = trust</p>
-  <aside class="notes">[0:06–0:09] Names + one job only. No connections yet (slide 6). No types yet (slide 5). Click through fragments quickly.</aside>
+  <aside class="notes">[0:06–0:09] Names + one job only. No connections yet (slide 7). Types on slide 5. Click through fragments quickly.</aside>
 </section>
 
 <!-- 5 · INTERNALS & TYPES -->
 <section>
-  <div class="kicker">Go deeper — what each component actually is</div>
-  <h2 style="font-size:1em; margin-bottom:.15em">Types · internals · how they fit in any production system</h2>
+  <div class="kicker">Reference</div>
+  <h2 style="font-size:1em; margin-bottom:.15em">Types, internals &amp; how each fits</h2>
   <table class="intbl">
     <tr><th></th><th>Types (categories)</th><th>Internals (what's inside)</th><th>How it fits</th></tr>
     <tr class="fragment"><td class="n n1">1</td><td class="types"><strong>Model</strong> · frontier vs open · worker vs reviewer · chat vs reasoning</td><td class="internal">System prompt + messages + tool schemas in → text or <code>tool_use</code> blocks out</td><td class="fit">The brain at every step — decides answer or action</td></tr>
@@ -170,41 +187,31 @@
     <tr class="fragment"><td class="n n6">6</td><td class="types"><strong>HITL</strong> · approve-before-execute (risky tools) · approve-before-ship · human feedback/correction</td><td class="internal">Pause loop → queue for human → resume with approve / deny / edit message</td><td class="fit">High-stakes gates — brand, legal, money, publish</td></tr>
     <tr class="fragment"><td class="n n7">7</td><td class="types"><strong>Observability</strong> · traces/spans · metrics (latency, tokens, cost) · offline evals · online judge</td><td class="internal">Log every LLM + tool hop; score outputs vs rubric or human labels</td><td class="fit">Trust &amp; improvement — you can't ship what you can't measure</td></tr>
   </table>
-  <aside class="notes">[0:09–0:12] Cheat sheet — types + internals + fit. ~20 sec/row. Slide 6 maps cross-cutting topics + expands types in depth.</aside>
+  <aside class="notes">[0:09–0:12] Cheat sheet — types + internals + fit. ~20 sec/row. Screenshot slide for attendees. Next slide: where deployment, monitoring &amp; RAG map (not an 8th box).</aside>
 </section>
 
-<!-- 5b · TYPES IN DEPTH + WHERE EVERYTHING ELSE LIVES -->
-<section class="fit-slide">
-  <div class="kicker">The full picture</div>
-  <h2 style="font-size:.95em; margin-bottom:.12em">Nothing missing — deployment, monitoring, prompts <em>live inside or wrap</em> the 7</h2>
-  <div class="wrapbar"><strong>Cross-cutting layers</strong> (not an 8th box): deployment &amp; CI/CD · security &amp; IAM · FinOps · harness/IDE — they <em>wrap</em> the whole system or plug into a numbered component below.</div>
-  <div class="wrapgrid">
-    <div class="wrapchip"><span class="tag">①</span><strong>Prompt / context engineering</strong> — system prompt, few-shot, context budget</div>
-    <div class="wrapchip"><span class="tag">②</span><strong>RAG / knowledge bases</strong> — a memory subtype, not its own box</div>
-    <div class="wrapchip"><span class="tag">③</span><strong>MCP / protocols</strong> — standard tool boundary (Session 6)</div>
-    <div class="wrapchip"><span class="tag">⑤</span><strong>Structured output</strong> — JSON schema validation before next step</div>
-    <div class="wrapchip"><span class="tag">⑦</span><strong>Monitoring &amp; alerting</strong> — metrics dashboards, SLO alerts (inside Observability)</div>
-    <div class="wrapchip"><span class="tag">⑦</span><strong>Eval CI</strong> — offline test suites before deploy</div>
-    <div class="wrapchip"><span class="tag">④⑦</span><strong>Deployment</strong> — Docker, serverless, LangGraph Cloud (Session 6)</div>
-    <div class="wrapchip"><span class="tag">⑤</span><strong>Governance</strong> — PII, secrets, audit — guardrails + platform rails</div>
-  </div>
-  <table class="typetbl">
-    <tr><th></th><th>Types &amp; variants (in depth)</th><th>When to pick</th></tr>
-    <tr><td class="num n1">1</td><td><strong>Models:</strong> frontier API · open/self-hosted · <em>worker</em> (fast/cheap) vs <em>reviewer</em> (strong) · chat vs reasoning · routing via LiteLLM/OpenRouter</td><td>Fast model loops; strong model for review &amp; hard decisions</td></tr>
-    <tr><td class="num n2">2</td><td><strong>Memory:</strong> working thread · semantic RAG (vector DB) · episodic/user profile · artifact/files · graph memory</td><td>Thread = conversation · RAG = docs · files = code/docs agent wrote</td></tr>
-    <tr><td class="num n3">3</td><td><strong>Tools:</strong> search · code/sandbox · REST/CRUD APIs · MCP servers · browser/computer-use · workflow (n8n)</td><td>MCP for reusable integrations; sandbox for untrusted code</td></tr>
-    <tr><td class="num n4">4</td><td><strong>Orchestration:</strong> ReAct loop · sequential pipeline · supervisor + workers · parallel fan-out · handoffs · human-in-loop as a graph node</td><td>One task = ReAct · multi-role = supervisor · factory = pipeline</td></tr>
-    <tr><td class="num n5">5</td><td><strong>Guardrails:</strong> runtime caps · policy filters · schema validation · moderation · rate limits</td><td>Add when a failure mode appears — not day one</td></tr>
-    <tr><td class="num n6">6</td><td><strong>HITL:</strong> approve-before-execute · approve-before-ship · human edit/correction · escalation queue</td><td>Publish, payments, deletes, external comms</td></tr>
-    <tr><td class="num n7">7</td><td><strong>Observability:</strong> traces/spans · metrics (latency, tokens, $) · logs · offline evals · online judge · monitoring &amp; alerts</td><td>Traces debug one request · evals prevent regressions · alerts catch drift in prod</td></tr>
-  </table>
-  <aside class="notes">[0:12–0:15] Top: "monitoring isn't box 8 — it's inside ⑦." Deployment wraps ④+⑦. Bottom table: expand types only — don't re-read slide 5 internals column. Sessions 2–6 go hands-on on each row.</aside>
-</section>
-
-<!-- 6 · REQUEST JOURNEY (connections only) -->
+<!-- 6 · WIDER STACK MAP -->
 <section>
-  <div class="kicker">How they connect — one request</div>
-  <h2 style="font-size:1em; margin-bottom:0">Data flow through the stack <span class="sub" style="font-size:.55em">(slides 4–6)</span></h2>
+  <div class="kicker">Beyond the seven boxes</div>
+  <h2 style="font-size:1em; margin-bottom:.2em">Where deployment, RAG &amp; monitoring fit</h2>
+  <table class="maplinktbl" style="font-size:.42em">
+    <tr><th>Also in production</th><th>Maps to</th><th>Notes</th></tr>
+    <tr><td>Prompt &amp; context engineering</td><td class="num">1 · Model</td><td>System prompt, few-shot, context budget</td></tr>
+    <tr><td>RAG &amp; knowledge bases</td><td class="num">2 · Memory</td><td>Vector retrieval — a memory type, not box 8</td></tr>
+    <tr><td>MCP &amp; tool protocols</td><td class="num">3 · Tools</td><td>Standard integration boundary · Session 6</td></tr>
+    <tr><td>Structured output / schemas</td><td class="num">5 · Guardrails</td><td>Validate JSON before the next step</td></tr>
+    <tr><td>Monitoring, evals &amp; alerts</td><td class="num">7 · Observability</td><td>Traces, dashboards, CI eval suites</td></tr>
+    <tr><td>Deployment &amp; CI/CD</td><td class="num">4 + 7</td><td>Orchestration runtime + shipping · Session 6</td></tr>
+    <tr><td>Harness / IDE (Cursor, Claude Code)</td><td class="num">Build-time</td><td>Where engineers build — see ecosystem slide</td></tr>
+    <tr><td>Security, IAM &amp; FinOps</td><td class="num">5 + platform</td><td>Guardrails + infra around the pipeline</td></tr>
+  </table>
+  <aside class="notes">[0:12–0:14] Scan table in 60 sec. Key line: "Monitoring is component 7, not a separate box." Types &amp; internals are on slide 5 — don't repeat.</aside>
+</section>
+
+<!-- 7 · REQUEST JOURNEY -->
+<section>
+  <div class="kicker">Connections</div>
+  <h2 style="font-size:1em; margin-bottom:0">One request through the loop</h2>
   <svg viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg" style="max-height:480px">
     <defs>
       <marker id="rjs" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#6366F1"/></marker>
@@ -216,67 +223,47 @@
     <line x1="180" y1="34" x2="218" y2="34" stroke="#6366F1" stroke-width="2.5" marker-end="url(#rjs)"/>
     <ellipse cx="550" cy="250" rx="400" ry="175" fill="none" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 6"/>
     <text x="550" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#6366F1">ORCHESTRATION LOOP — repeats until done</text>
-    <g font-size="11">
-      <rect x="230" y="98" width="168" height="100" rx="14" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
-      <circle cx="252" cy="120" r="13" fill="#14B8A6"/><text x="252" y="125" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">2</text>
-      <text x="314" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#0F766E">Memory</text>
-      <text x="314" y="142" text-anchor="middle" fill="#475569">Loads prior turns</text>
-      <text x="314" y="158" text-anchor="middle" fill="#475569">&amp; context</text>
-      <text x="314" y="182" text-anchor="middle" font-size="9.5" fill="#0F766E" font-style="italic">feeds the model</text>
-      <rect x="466" y="98" width="168" height="100" rx="14" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
-      <circle cx="488" cy="120" r="13" fill="#14B8A6"/><text x="488" y="125" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">1</text>
-      <text x="550" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#0F766E">Model</text>
-      <text x="550" y="142" text-anchor="middle" fill="#475569">Reasons: answer</text>
-      <text x="550" y="158" text-anchor="middle" fill="#475569">or call a tool?</text>
-      <text x="550" y="182" text-anchor="middle" font-size="9.5" fill="#0F766E" font-style="italic">picks next action</text>
-      <rect x="702" y="98" width="168" height="100" rx="14" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
-      <circle cx="724" cy="120" r="13" fill="#14B8A6"/><text x="724" y="125" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">3</text>
-      <text x="786" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#0F766E">Tools</text>
-      <text x="786" y="142" text-anchor="middle" fill="#475569">Search, code,</text>
-      <text x="786" y="158" text-anchor="middle" fill="#475569">APIs, sandboxes</text>
-      <text x="786" y="182" text-anchor="middle" font-size="9.5" fill="#0F766E" font-style="italic">results to memory</text>
-      <rect x="702" y="302" width="168" height="100" rx="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
-      <circle cx="724" cy="324" r="13" fill="#F59E0B"/><text x="724" y="329" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">5</text>
-      <text x="786" y="326" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">Guardrails</text>
-      <text x="786" y="346" text-anchor="middle" fill="#78350F">Step cap, budget</text>
-      <text x="786" y="362" text-anchor="middle" fill="#78350F">policy checks</text>
-      <text x="786" y="386" text-anchor="middle" font-size="9.5" fill="#92400E" font-style="italic">stops runaway loops</text>
-      <rect x="466" y="302" width="168" height="100" rx="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
-      <circle cx="488" cy="324" r="13" fill="#F59E0B"/><text x="488" y="329" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">6</text>
-      <text x="550" y="326" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">Human-in-loop</text>
-      <text x="550" y="346" text-anchor="middle" fill="#78350F">Approve risky</text>
-      <text x="550" y="362" text-anchor="middle" fill="#78350F">actions first</text>
-      <text x="550" y="386" text-anchor="middle" font-size="9.5" fill="#92400E" font-style="italic">gate before execute</text>
-      <rect x="230" y="302" width="168" height="100" rx="14" fill="#FCE7F3" stroke="#EC4899" stroke-width="2"/>
-      <circle cx="252" cy="324" r="13" fill="#EC4899"/><text x="252" y="329" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">7</text>
-      <text x="314" y="326" text-anchor="middle" font-size="13" font-weight="700" fill="#9D174D">Observability</text>
-      <text x="314" y="346" text-anchor="middle" fill="#831843">Tokens, latency</text>
-      <text x="314" y="362" text-anchor="middle" fill="#831843">traces, evals</text>
-      <text x="314" y="386" text-anchor="middle" font-size="9.5" fill="#9D174D" font-style="italic">trust in prod</text>
+    <g font-size="12">
+      <rect x="230" y="110" width="168" height="64" rx="14" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
+      <circle cx="252" cy="132" r="13" fill="#14B8A6"/><text x="252" y="137" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">2</text>
+      <text x="314" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#0F766E">Memory</text>
+      <rect x="466" y="110" width="168" height="64" rx="14" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
+      <circle cx="488" cy="132" r="13" fill="#14B8A6"/><text x="488" y="137" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">1</text>
+      <text x="550" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#0F766E">Model</text>
+      <rect x="702" y="110" width="168" height="64" rx="14" fill="#F0FDFA" stroke="#14B8A6" stroke-width="2"/>
+      <circle cx="724" cy="132" r="13" fill="#14B8A6"/><text x="724" y="137" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">3</text>
+      <text x="786" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#0F766E">Tools</text>
+      <rect x="702" y="290" width="168" height="64" rx="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+      <circle cx="724" cy="312" r="13" fill="#F59E0B"/><text x="724" y="317" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">5</text>
+      <text x="786" y="328" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">Guardrails</text>
+      <rect x="466" y="290" width="168" height="64" rx="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+      <circle cx="488" cy="312" r="13" fill="#F59E0B"/><text x="488" y="317" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">6</text>
+      <text x="550" y="328" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">Human-in-loop</text>
+      <rect x="230" y="290" width="168" height="64" rx="14" fill="#FCE7F3" stroke="#EC4899" stroke-width="2"/>
+      <circle cx="252" cy="312" r="13" fill="#EC4899"/><text x="252" y="317" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">7</text>
+      <text x="314" y="328" text-anchor="middle" font-size="14" font-weight="700" fill="#9D174D">Observability</text>
       <rect x="466" y="218" width="168" height="48" rx="14" fill="#EEF2FF" stroke="#6366F1" stroke-width="2"/>
       <circle cx="488" cy="240" r="13" fill="#6366F1"/><text x="488" y="245" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">4</text>
-      <text x="562" y="246" text-anchor="middle" font-size="13" font-weight="700" fill="#3730A3">Orchestration</text>
+      <text x="562" y="246" text-anchor="middle" font-size="14" font-weight="700" fill="#3730A3">Orchestration</text>
     </g>
-    <path d="M398 148 C430 180 430 200 398 218" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
-    <path d="M634 148 C666 180 666 200 634 218" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
-    <path d="M870 198 L870 300" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
-    <path d="M702 352 L398 352" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
-    <path d="M230 352 L230 198" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
+    <path d="M398 142 C430 170 430 190 398 218" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
+    <path d="M634 142 C666 170 666 190 634 218" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
+    <path d="M870 174 L870 288" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
+    <path d="M702 322 L398 322" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
+    <path d="M230 322 L230 174" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#rjsloop)"/>
     <rect x="920" y="210" width="150" height="52" rx="14" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
     <text x="995" y="234" text-anchor="middle" font-size="13" font-weight="700" fill="#15803D">Final answer</text>
     <text x="995" y="252" text-anchor="middle" font-size="10" fill="#166534">loop exits to user</text>
-    <line x1="870" y1="148" x2="918" y2="228" stroke="#22C55E" stroke-width="2" marker-end="url(#rjs)"/>
-    <rect x="30" y="430" width="1040" height="44" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
-    <text x="550" y="456" text-anchor="middle" font-size="11.5" fill="#64748B" font-style="italic">Follow the arrows — not the box text. This is the loop inside every agent step.</text>
+    <line x1="870" y1="174" x2="918" y2="228" stroke="#22C55E" stroke-width="2" marker-end="url(#rjs)"/>
   </svg>
-  <aside class="notes">[0:13–0:15] Connections ONLY. Trace arrows once. Don't re-explain what Memory/Model mean — point to slide 5 if asked.</aside>
+  <aside class="notes">[0:14–0:16] Trace arrows once clockwise. Names only on boxes — definitions are slide 5. Example ask: "Research + draft post".</aside>
 </section>
 
-<!-- 7 · 2026 STACK MAP (ecosystem only) -->
+<!-- 8 · 2026 STACK MAP -->
 <section>
-  <div class="kicker">The 2026 ecosystem — one page</div>
-  <h2 style="font-size:1em; margin-bottom:0">Learn the <em>layers</em> — the logos churn monthly</h2>
-  <svg viewBox="0 0 1200 730" xmlns="http://www.w3.org/2000/svg" style="max-height:500px">
+  <div class="kicker">Ecosystem</div>
+  <h2 style="font-size:1em; margin-bottom:0">The 2026 vendor landscape</h2>
+  <svg viewBox="0 0 1200 730" xmlns="http://www.w3.org/2000/svg" style="max-height:440px">
     <rect x="0" y="0" width="1200" height="730" rx="18" fill="#0B1020"/>
     <text x="600" y="38" text-anchor="middle" font-size="26" font-weight="800" fill="#FFFFFF">The AI Agent Stack in 2026</text>
     <text x="600" y="60" text-anchor="middle" font-size="12.5" fill="#94A3B8" font-style="italic">illustrative · sweep the layers in ~90 seconds</text>
@@ -290,13 +277,13 @@
     <rect x="924" y="452" width="246" height="196" rx="14" fill="#2A2109" stroke="#FBBF24" stroke-width="1.5"/><text x="974" y="480" font-size="13" font-weight="800" fill="#FCD34D">MEMORY &amp; STATE</text><g font-size="12" fill="#E2E8F0"><text x="940" y="516">Mem0 · Zep · Letta</text><text x="940" y="548">Redis · Postgres</text></g>
     <rect x="30" y="660" width="1140" height="46" rx="12" fill="#0C2417" stroke="#22C55E" stroke-width="1.5"/><text x="80" y="680" font-size="12.5" font-weight="800" fill="#86EFAC">GOVERNANCE &amp; HUMAN CONTROL</text><text x="470" y="688" font-size="12.5" fill="#CBD5E1">Guardrails AI · Lakera · OPA · human approval · audit logs</text>
   </svg>
-  <p class="miss"><strong>Also in the agentic stack</strong> (named on slide 7, deep-dived in Sessions 2–6): <em>prompt &amp; context engineering</em> · MCP/A2A protocols · structured output · agent design patterns · deployment &amp; packaging · governance/security rails.</p>
-  <aside class="notes">[0:15–0:17] Ecosystem ONLY — sweep layers in 60s. Read the "also in the stack" line: prompt engineering steers the Model; MCP/A2A are on this map; Sessions 2–6 go deep on each.</aside>
+  <aside class="notes">[0:16–0:18] Sweep top strip → models column → harness/frameworks → three tiles → bottom strip. Don't read every logo — learn categories. Cross-cutting topics mapped on slide 6.</aside>
 </section>
 
-<!-- 8 · LIVE DEMO -->
+<!-- 9 · LIVE DEMO -->
 <section>
-  <div class="kicker">Live · watch the stack run</div>
+  <div class="kicker">Live demo</div>
+  <h2 style="font-size:1em; margin-bottom:.2em">All seven components in one script</h2>
   <pre><code data-trim data-line-numbers="1|3-4|6-8|10-12|14-16" class="language-python"># hello_stack.py — every component, labelled
 messages = [{"role":"user","content": TASK}]        # 2 MEMORY
 
@@ -310,27 +297,26 @@ for step in range(MAX_STEPS):                        # 5 GUARDRAILS
         result = run_tool(call)                       # 3 TOOLS
     messages.append(results)                          # loop → MEMORY grows</code></pre>
   <p class="sub center" style="font-size:.62em; margin-top:.3em">▶ <code>python hello_stack.py</code> — narrate each labelled banner as it prints</p>
-  <aside class="notes">[0:22–0:27] THE payoff. Run live. Narrate banners: [2 MEMORY] → [4 ORCHESTRATION] → [1 MODEL] → [7 OBSERVABILITY] → [3 TOOLS] → answer 399. Message: none of this is magic — ~60 lines. Sessions 2–6 make each box production-grade.</aside>
+  <aside class="notes">[0:18–0:23] THE payoff. Run live. Narrate banners: [2 MEMORY] → [4 ORCHESTRATION] → [1 MODEL] → [7 OBSERVABILITY] → [3 TOOLS] → answer 399. Fallback: walk code; answer is 23×17+8=399.</aside>
 </section>
 
-<!-- 9 · GROW INTO PRODUCTION -->
+<!-- 10 · GROW INTO PRODUCTION -->
 <section>
-  <div class="kicker">Adoption reality</div>
-  <h2>Start with 3 boxes · grow into 7</h2>
+  <div class="kicker">Adoption</div>
+  <h2>Start with three · grow to seven</h2>
   <div class="grid3" style="font-size:.54em; margin-top:.25em">
     <div class="card" style="border-color:#14B8A6"><strong>🚀 Prototype</strong><br><span class="sub">Model + Tools + loop.<br>Prove the task is possible.</span></div>
     <div class="card" style="border-color:#6366F1"><strong>📦 Real feature</strong><br><span class="sub">+ Memory, Guardrails, HITL.<br>Safe enough for users.</span></div>
     <div class="card" style="border-color:#EC4899"><strong>🏭 Production</strong><br><span class="sub">+ Observability + evals.<br>Trust it &amp; improve it.</span></div>
   </div>
   <div class="callout" style="margin-top:.45em; font-size:.68em">Add a component when a <strong>concrete failure</strong> demands it — not because a diagram has seven boxes.</div>
-  <aside class="notes">[0:27–0:29] Prevent overwhelm before the big finale. Complexity is earned, not default. Bridge: "Now let's see where all 7 land in a real system…"</aside>
+  <aside class="notes">[0:23–0:25] Bridge to finale: "Now let's see where all 7 land in a real system."</aside>
 </section>
 
-<!-- 10 · WHAT WE'RE BUILDING (use case — always visible) -->
-<section class="fit-slide">
-  <div class="kicker">Finale · part 1</div>
-  <h2 style="font-size:1.15em; margin-bottom:.15em">What we're building</h2>
-  <p style="font-size:.72em; font-weight:800; margin:0 0 .3em">Use case: <em>Research + draft a client campaign post</em></p>
+<!-- 11 · WHAT WE'RE BUILDING -->
+<section>
+  <div class="kicker">Production example</div>
+  <h2 style="font-size:1.1em; margin-bottom:.15em">Use case: research + draft a campaign post</h2>
   <div class="brief">
     <strong>Example client brief</strong>
     "Write a launch post for Product X. Tone: confident, not salesy. Cite two sources. On-brand per our guidelines. PM must approve before publish."
@@ -349,15 +335,14 @@ for step in range(MAX_STEPS):                        # 5 GUARDRAILS
       <span class="sub">Publish-ready post in CMS — cited, on-brand, approved</span>
     </div>
   </div>
-  <p class="sub" style="font-size:.48em; margin-top:.35em">Next slide: the same brief flowing through a production pipeline, with each of the 7 components labelled.</p>
-  <aside class="notes">[0:24–0:27] Read the example brief aloud. Land input → process → output BEFORE showing the diagram. This slide must never be blank — no fragments.</aside>
+  <aside class="notes">[0:25–0:28] Read the example brief aloud. Land input → process → output. Next slide shows the pipeline diagram.</aside>
 </section>
 
-<!-- 11 · PRODUCTION PIPELINE (diagram — always visible) -->
-<section class="fit-slide">
-  <div class="center" style="margin-bottom:.15em"><span class="hero-tag">Finale · part 2 · screenshot this</span></div>
-  <h2 style="font-size:1em; margin:0 0 .15em">Production pipeline — research + draft post</h2>
-  <div class="pipe-rail"><strong>⑦ Observability</strong> — Langfuse traces every hop · Braintrust eval · LLM-as-judge blocks bad drafts</div>
+<!-- 12 · PRODUCTION PIPELINE -->
+<section>
+  <div class="kicker">Production example</div>
+  <h2 style="font-size:1em; margin:0 0 .15em">The production pipeline</h2>
+  <div class="pipe-rail"><strong>7 Observability</strong> — Langfuse traces · Braintrust eval · LLM-as-judge blocks bad drafts</div>
   <div class="pipe">
     <div class="pipe-step" style="background:#0B1020; border-color:#0B1020; color:#fff; flex:0.8">
       <strong style="color:#fff">Brief</strong>
@@ -365,27 +350,27 @@ for step in range(MAX_STEPS):                        # 5 GUARDRAILS
     </div>
     <div class="pipe-arrow">→</div>
     <div class="pipe-step pipe-ctrl">
-      <strong>④ Orchestrator</strong>
+      <strong>4 Orchestrator</strong>
       <span>LangGraph supervisor</span>
     </div>
     <div class="pipe-arrow">→</div>
     <div class="pipe-step pipe-core">
       <strong>Research</strong>
-      <span>Exa + brand RAG · ①②③⑤</span>
+      <span>Exa + brand RAG · 1 2 3 5</span>
     </div>
     <div class="pipe-arrow">→</div>
     <div class="pipe-step pipe-core">
       <strong>Writer</strong>
-      <span>draft from notes · ①②</span>
+      <span>draft from notes · 1 2</span>
     </div>
     <div class="pipe-arrow">→</div>
     <div class="pipe-step pipe-ctrl">
       <strong>Reviewer</strong>
-      <span>rubric loop · ①②⑦</span>
+      <span>rubric loop · 1 2 7</span>
     </div>
     <div class="pipe-arrow">→</div>
     <div class="pipe-step pipe-trust">
-      <strong>⑥ PM gate</strong>
+      <strong>6 PM gate</strong>
       <span>Slack approve</span>
     </div>
     <div class="pipe-arrow">→</div>
@@ -404,55 +389,50 @@ for step in range(MAX_STEPS):                        # 5 GUARDRAILS
     <tr><td class="num n6">6</td><td><strong>HITL</strong> gates publish</td><td>PM approves in Slack before CMS</td></tr>
     <tr><td class="num n7">7</td><td><strong>Observability</strong> proves quality</td><td>Trace + judge score must pass to ship</td></tr>
   </table>
-  <p class="sub" style="font-size:.4em; margin-top:.2em">Vendor names → slide 8 · component definitions → slides 4–6 · Sessions 2–6 build this pipeline.</p>
-  <aside class="notes">[0:27–0:34] Walk pipeline left→right once. Then scan the table — one concrete example per component. Do not re-read slide 5 types. Point to slide 10 for the brief context.</aside>
+  <aside class="notes">[0:28–0:34] Walk pipeline left→right. Scan table — one example per component. Screenshot slide for attendees. Don't re-read slide 5. Vendor logos on slide 8.</aside>
 </section>
 
-<!-- 12 · SUMMARY + NEXT -->
+<!-- 13 · SUMMARY + NEXT -->
 <section data-background-color="#EEF2FF">
   <div class="kicker">Wrap-up</div>
-  <h2 style="font-size:1.1em; margin-bottom:.15em">What we learned today · what's next</h2>
+  <h2 style="font-size:1.1em; margin-bottom:.15em">What we covered · what's next</h2>
   <div class="sumgrid">
     <div class="sumbox">
-      <h3>Today — the mental map</h3>
+      <h3>Four things to remember</h3>
       <ul>
-        <li><strong>2026 shift:</strong> demos are easy · production = the <em>harness</em> around the model</li>
-        <li><strong>Agent test:</strong> who decides the next step — you or the model?</li>
-        <li><strong>7 components:</strong> Model · Memory · Tools · Orchestration · Guardrails · HITL · Observability</li>
-        <li><strong>Connection story:</strong> core loop inside orchestration · trust layers wrap it</li>
-        <li><strong>2026 stack:</strong> learn <em>categories</em>, not logos — they churn monthly</li>
+        <li><strong>2026 shift:</strong> production = the <em>harness</em> around the model</li>
+        <li><strong>7 components</strong> + how they connect in one loop</li>
         <li><strong>Live demo:</strong> all 7 ran in ~60 lines of Python</li>
-        <li><strong>Production use case:</strong> brief → research → draft → review → PM → CMS</li>
-        <li><strong>Adoption:</strong> start with 3 boxes · add more when a real failure demands it</li>
+        <li><strong>Production story:</strong> brief → research → draft → review → PM → CMS</li>
       </ul>
     </div>
     <div class="sumbox">
       <h3>The series arc</h3>
       <ul>
         <li><strong>Session 1</strong> <span class="pill">today</span> — map the stack</li>
-        <li><strong>Session 2</strong> — coding agent foundations</li>
-        <li><strong>Session 3</strong> — deep research agent</li>
-        <li><strong>Session 4</strong> — reviewer / eval loop</li>
-        <li><strong>Session 5</strong> — observability &amp; evals in prod</li>
-        <li><strong>Session 6</strong> — orchestration · MCP · ship the full pipeline</li>
+        <li><strong>Session 2</strong> — build your first agent</li>
+        <li><strong>Session 3</strong> — RAG: beginner → production</li>
+        <li><strong>Session 4</strong> — research agent</li>
+        <li><strong>Session 5</strong> — building your own agentic system</li>
+        <li><strong>Session 6</strong> — ship the production pipeline</li>
       </ul>
       <div class="nextbox">
-        <h3>Next session — Foundations</h3>
-        <p><strong>You'll build a coding agent</strong> — hands-on, one component at a time.</p>
-        <p>Model · prompt · tools · memory · guardrails — same boxes from today, now in <em>your</em> code.</p>
+        <h3>Next session — Build your first agent</h3>
+        <p><strong>Hands-on:</strong> coding agent from scratch — one component at a time.</p>
+        <p>Model · tools · loop · memory · guardrails — same boxes from today, now in <em>your</em> code.</p>
         <p style="color:#94A3B8; margin-top:.5em">Come with Python ready · same API key · laptop open.</p>
       </div>
     </div>
   </div>
-  <aside class="notes">[0:34–0:38] Left column: 60-sec recap of takeaways — don't re-teach. Right: tease Session 2 coding agent. Land: "Today was the map. Next session we write the loop." Then Q&A.</aside>
+  <aside class="notes">[0:34–0:38] 60-sec recap on left. Walk series arc: S2 first agent → S3 RAG → S4 research → S5 your own system → S6 ship pipeline. Tease Session 2. Then Q&A.</aside>
 </section>
 
-<!-- 13 · Q&A -->
+<!-- 14 · Q&A -->
 <section data-background-color="#0B1020">
   <div class="center" style="color:#fff">
     <h2 style="color:#fff">Questions?</h2>
     <p class="sub" style="color:#94A3B8">Session 1 · 40 min · The AI Agent Tech Stack in 2026</p>
-    <p class="sub" style="color:#64748B; font-size:.58em; margin-top:1.2em">Next → Session 2: build a coding agent, one component at a time</p>
+    <p class="sub" style="color:#64748B; font-size:.58em; margin-top:1.2em">Next → Session 2: build your first agent</p>
   </div>
   <aside class="notes">Q&A. Likely: "Which framework?" → learn the category; we use plain loops so ideas port. "Need all 7?" → no, grow into them. "MCP required?" → emerging standard, Session 6.</aside>
 </section>
@@ -462,7 +442,17 @@ for step in range(MAX_STEPS):                        # 5 GUARDRAILS
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
 <script>
-  Reveal.initialize({ hash:true, slideNumber:'c/t', transition:'slide', width:1280, height:720, margin:0.04, controls:true, progress:true, plugins:[ RevealHighlight, RevealNotes ] });
+  Reveal.initialize({ hash:true, slideNumber:'c/t', transition:'slide', width:1280, height:720, margin:0.04, controls:true, progress:false, plugins:[ RevealHighlight, RevealNotes ] });
+
+  function updateTopProgress() {
+    var indices = Reveal.getIndices();
+    var total = Reveal.getTotalSlides();
+    var pct = total > 1 ? (indices.h / (total - 1)) * 100 : 0;
+    document.getElementById('top-progress').style.width = pct + '%';
+  }
+  Reveal.on('ready', updateTopProgress);
+  Reveal.on('slidechanged', updateTopProgress);
+
   if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ Reveal.layout(); }); }
 </script>
 </body>
